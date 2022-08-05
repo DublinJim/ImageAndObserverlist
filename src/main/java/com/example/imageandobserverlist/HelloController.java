@@ -2,6 +2,7 @@ package com.example.imageandobserverlist;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -31,7 +32,7 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        lbl1.setText("hello");
+        lbl1.setText("Click the combo list to begin");
         combo1.setPromptText("Items picked here");
         list1.setItems(oblist);
         combo1.getItems().add("Item 1");
@@ -43,7 +44,12 @@ public class HelloController implements Initializable {
 
     public void addTheItem(MouseEvent mouseEvent) {
 
-        lbl1.setText("added");
+        lbl1.setText("Added");
         list1.getItems().add(combo1.getValue());
+    }
+
+    public void exitAll(MouseEvent mouseEvent) {
+
+        Platform.exit();
     }
 }
